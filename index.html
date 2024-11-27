@@ -19,14 +19,14 @@
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
         setThemeClass();
 
-        if (window.Telegram.WebApp.isVersionAtLeast("8.0") && ['ios', 'android', 'android_x'].includes(window.Telegram.WebApp.platform)) {
-            try {
-                window.Telegram.WebApp.requestFullscreen();
-                // TODO: Fixme window.Telegram.WebApp.toggleOrientationLock(!!1);
-            } catch (e) {
-                console.error(e, "1");
-            }
-        }
+        // if (window.Telegram.WebApp.isVersionAtLeast("8.0") && ['ios', 'android', 'android_x'].includes(window.Telegram.WebApp.platform)) {
+        //     try {
+        //         window.Telegram.WebApp.requestFullscreen();
+        //         // TODO: Fixme window.Telegram.WebApp.toggleOrientationLock(!!1);
+        //     } catch (e) {
+        //         console.error(e, "1");
+        //     }
+        // }
     </script>
     <title></title>
     <style>
@@ -176,7 +176,6 @@
 
         section#top_sect {
             background-color: var(--tg-theme-bg-color, #ffffff);
-            margin-top: var(--tg-safe-area-inset-top);
         }
 
         section#top_sect.second {
