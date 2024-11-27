@@ -19,14 +19,14 @@
         Telegram.WebApp.onEvent('themeChanged', setThemeClass);
         setThemeClass();
 
-            if (window.Telegram.WebApp.isVersionAtLeast("8.0") && ['ios', 'android', 'android_x'].includes(window.Telegram.WebApp.platform)) {
-                try {
-                    window.Telegram.WebApp.requestFullscreen();
-                    // TODO: Fixme window.Telegram.WebApp.toggleOrientationLock(!!1);
-                } catch (e) {
-                    console.error(e, "1");
-                }
+        if (window.Telegram.WebApp.isVersionAtLeast("8.0") && ['ios', 'android', 'android_x'].includes(window.Telegram.WebApp.platform)) {
+            try {
+                window.Telegram.WebApp.requestFullscreen();
+                // TODO: Fixme window.Telegram.WebApp.toggleOrientationLock(!!1);
+            } catch (e) {
+                console.error(e, "1");
             }
+        }
     </script>
     <title></title>
     <style>
@@ -398,8 +398,8 @@
         <button id="fullscreen_btn" onclick="DemoApp.toggleFullscreen(this);">Request Fullscreen</button>
         <button id="orient_btn" onclick="DemoApp.toggleOrientationLock(this);">Lock Orientation</button>
         <input type="text" placeholder="Input text in regular input..." id="regular_field" />
-        <div class="input" contenteditable="true" data-placeholder="Input text in contenteditable field..." id="text_field">
-        </div>
+        <div class="input" contenteditable="true" data-placeholder="Input text in contenteditable field..."
+            id="text_field"></div>
         <div id="peer_wrap" style="display:none">
             <img id="peer_photo" class="chat_img" src="">
             <span id="peer_name"></span>
@@ -426,7 +426,7 @@
                 <option value="custom" id="bbar_color_val">custom...</option>
             </select>
         </div>
-        </section>
+    </section>
 
     <section>
         <div id="btn_status" class="hint" style="display: none;"></div>
@@ -449,19 +449,23 @@
             <li><a
                     href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/DurgerKingBot/menu');">web_app_open_tg_link(webapp_direct_link)</a>
                 (opens with confirm for the first time, then without)</li>
-            </ul>
-            <ul>
-            <li><a href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'chrome'});">telegram.org</a>
+        </ul>
+        <ul>
+            <li><a
+                    href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'chrome'});">telegram.org</a>
                 (opens in Chrome)</li>
-            <li><a href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'firefox'});">telegram.org</a>
+            <li><a
+                    href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'firefox'});">telegram.org</a>
                 (opens in Firefox)</li>
-            <li><a href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'safari'});">telegram.org</a>
+            <li><a
+                    href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'safari'});">telegram.org</a>
                 (opens in Safari)</li>
-            <li><a href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'opera'});">telegram.org</a>
+            <li><a
+                    href="javascript:Telegram.WebApp.openLink('https://telegram.org',{try_browser:'opera'});">telegram.org</a>
                 (opens in Opera)</li>
             <li><a href="javascript:Telegram.WebApp.close({return_back:true});">Return back</a> (Android only)</li>
-            </ul>
-            <ul>
+        </ul>
+        <ul>
             <li><a href="javascript:Telegram.WebApp.shareToStory('https://telegra.ph/file/5583ac37c90979f052b7b.png');">Share
                     picture to story</a></li>
             <li><a
@@ -473,81 +477,78 @@
             <li><a
                     href="javascript:Telegram.WebApp.shareToStory('https://telegra.ph/file/61f1dac694c3131a7b4ac.mp4',{text:'Test caption',widget_link:{url:'https://telegra.ph/Almost-done-07-23',name:'Link'}});">Share
                     video to story</a> (with caption and link widget)</li>
-            </ul>
-            <ul>
-            <li><a href="javascript:DemoApp.downloadFile(this, 'https://telegra.ph/file/5583ac37c90979f052b7b.png', 'Photo.png');">Download
+        </ul>
+        <ul>
+            <li><a
+                    href="javascript:DemoApp.downloadFile(this, 'https://telegra.ph/file/5583ac37c90979f052b7b.png', 'Photo.png');">Download
                     picture</a> <span></span></li>
-            <li><a href="javascript:DemoApp.downloadFile(this, 'https://telegra.ph/file/61f1dac694c3131a7b4ac.mp4', 'Video.mp4');">Download
+            <li><a
+                    href="javascript:DemoApp.downloadFile(this, 'https://telegra.ph/file/61f1dac694c3131a7b4ac.mp4', 'Video.mp4');">Download
                     video</a> <span></span></li>
             <li><a href="javascript:DemoApp.downloadFile(this, 'https://pdfobject.com/pdf/sample.pdf', 'Sample.pdf');">Download
                     PDF</a> <span></span></li>
-            </ul>
-            <ul>
+        </ul>
+        <ul>
             <li><a href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/addstickers/fltmp');">Stickerpack</a>
             </li>
             <li><a
                     href="javascript:Telegram.WebApp.openTelegramLink('https://t.me/addstickers/fltmp', {force_request:true});">Stickerpack</a>
                 (nocache)</li>
-            </ul>
-            <ul>
+        </ul>
+        <ul>
             <li><a href="javascript:;" onclick="return DemoApp.checkHomeScreenStatus(this);">Check Home Screen
                     Status</a> <span></span></li>
             <li><a id="add_to_home_btn" href="javascript:;" onclick="return DemoApp.addToHomeScreen(this);">Add to Home
                     Screen</a></li>
-            </ul>
-            <ul>
+        </ul>
+        <ul>
             <li><a href="javascript:DemoApp.setEmojiStatus(this, '5213305508034783384');">Set emoji status</a>
-                <span></span>
-            </li>
+                <span></span></li>
             <li><a href="javascript:DemoApp.setEmojiStatus(this, '5213305508034783384', 300);">Set emoji status</a> for
                 5 min <span></span></li>
             <li><a href="javascript:DemoApp.setEmojiStatus(this, '123');">Set emoji status</a> (invalid id)
-                <span></span>
-            </li>
-            </ul>
+                <span></span></li>
+        </ul>
 
         <p>Test permissions:</p>
         <div class="columns">
             <ul>
                 <li><a href="javascript:;" onclick="return DemoApp.requestLocation(this);">Request Location</a>
-                    <span></span>
-                </li>
+                    <span></span></li>
                 <li><a href="javascript:;" onclick="return DemoApp.requestVideo(this);">Request Video</a> <span></span>
                 </li>
                 <li><a href="javascript:;" onclick="return DemoApp.requestAudio(this);">Request Audio</a> <span></span>
                 </li>
                 <li><a href="javascript:;" onclick="return DemoApp.requestAudioVideo(this);">Request Audio+Video</a>
-                    <span></span>
-                </li>
+                    <span></span></li>
                 <li><a href="javascript:;" onclick="return DemoApp.testClipboard(this);" id="clipboard_test">Read from
                         clipboard</a> <span></span></li>
-                </ul>
-                <ul>
+            </ul>
+            <ul>
                 <li><a href="javascript:;" onclick="return DemoApp.requestWriteAccess(this);">Request write access</a>
-                    <span></span>
-                </li>
+                    <span></span></li>
                 <li><a href="javascript:;" onclick="return DemoApp.requestPhoneNumber(this);">Request phone number</a>
-                    <span></span><br><br>
-                </li>
+                    <span></span><br><br></li>
                 <li><a href="javascript:;" onclick="return DemoApp.requestServerTime(this);">Request server time</a>
                     (invokes custom method) <span></span></li>
-                </ul>
-                </div>
+            </ul>
+        </div>
 
         <p>Sensors:</p>
         <div class="columns">
             <ul>
-                <li><a id="accelerometer_btn" href="javascript:;" onclick="return DemoApp.toggleAccelerometer(this);">Start
-                        Accelerometer</a> <span></span></li>
-                <li><a id="device_orientation_btn" href="javascript:;" onclick="return DemoApp.toggleDeviceOrientation(this);">Start
+                <li><a id="accelerometer_btn" href="javascript:;"
+                        onclick="return DemoApp.toggleAccelerometer(this);">Start Accelerometer</a> <span></span></li>
+                <li><a id="device_orientation_btn" href="javascript:;"
+                        onclick="return DemoApp.toggleDeviceOrientation(this);">Start
                         DeviceOrientation(need_absolute=false)</a> <span></span></li>
                 <li id="device_orientation_abs_item"><a href="javascript:;"
                         onclick="return DemoApp.toggleDeviceOrientation(this, true);">Start
                         DeviceOrientation(need_absolute=true)</a> <span></span></li>
                 <li><a id="gyroscope_btn" href="javascript:;" onclick="return DemoApp.toggleGyroscope(this);">Start
                         Gyroscope</a> <span></span></li>
-                </ul>
-                </div>
+            </ul>
+        </div>
 
         <p>Test alerts:</p>
         <div class="columns">
@@ -565,8 +566,8 @@
                 <li><a href="javascript:;" onclick="DemoApp.showScanQrPopup();">showScanQrPopup</a></li>
                 <li><a href="javascript:;" onclick="DemoApp.showScanQrPopup(true);">showScanQrPopup (links only)</a>
                 </li>
-                </ul>
-                </div>
+            </ul>
+        </div>
 
         <p>Haptics:</p>
         <ul>
@@ -574,15 +575,16 @@
                 <a href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('light');">light</a>, &nbsp; <a
                     href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('medium');">medium</a>, &nbsp; <a
                     href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('rigid');">rigid</a>, &nbsp; <a
-                    href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('soft');">soft</a><br><br>
-            </li>
-            <li>Notification: <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('error');">error</a>, &nbsp;
-                <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('success');">success</a>,
-                &nbsp; <a href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('warning');">warning</a><br><br>
+                    href="javascript:Telegram.WebApp.HapticFeedback.impactOccurred('soft');">soft</a><br><br></li>
+            <li>Notification: <a
+                    href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('error');">error</a>, &nbsp; <a
+                    href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('success');">success</a>,
+                &nbsp; <a
+                    href="javascript:Telegram.WebApp.HapticFeedback.notificationOccurred('warning');">warning</a><br><br>
             </li>
             <li>Selection: <a href="javascript:Telegram.WebApp.HapticFeedback.selectionChanged();">changed</a><br><br>
             </li>
-            </ul>
+        </ul>
 
         <p>Cloud storage:</p>
         <form onsubmit="DemoApp.saveCloudForm(this, event);">
@@ -617,17 +619,16 @@
                 <li>access_requested: <span class="txt" id="bm_access_requested">false</span> (<a href="javascript:;"
                         onclick="return DemoApp.biometricRequestAccess(this);">Request access</a>) <span></span></li>
                 <li>access_granted: <span class="txt" id="bm_access_granted">false</span> <span id="bm_settings"
-                        style="display:none;">(<a href="javascript:;" onclick="return DemoApp.biometricOpenSettings(this);">Open
-                            settings</a>)</span></li>
+                        style="display:none;">(<a href="javascript:;"
+                            onclick="return DemoApp.biometricOpenSettings(this);">Open settings</a>)</span></li>
                 <li>token_saved: <span class="txt" id="bm_token_saved">false</span> (<a href="javascript:;"
                         onclick="return DemoApp.biometricSetToken(this);">Set token</a>, <a href="javascript:;"
                         onclick="return DemoApp.biometricRemoveToken(this);">Remove token</a>) <span></span></li>
                 <li>device_id: <span class="txt" id="bm_device_id"></span></li>
                 <li><a href="javascript:;" onclick="return DemoApp.biometricRequestAuth(this);">Request auth</a>
-                    <span></span>
-                </li>
-                </ul>
-                </div>
+                    <span></span></li>
+            </ul>
+        </div>
 
         <p>Location:</p>
         <div class="columns">
@@ -639,9 +640,9 @@
                 <li>access_granted: <span class="txt" id="loc_access_granted">false</span>
                     <span id="loc_settings" style="display:none;">(<a href="javascript:;"
                             onclick="return DemoApp.locationOpenSettings(this);">Open settings</a>)</span>
-                    </li>
-                    </ul>
-                    </div>
+                </li>
+            </ul>
+        </div>
 
         <pre><code id="webview_data"></code></pre>
         <div class="hint">
@@ -660,7 +661,7 @@
         <div class="hint">
             <span id="cur_activity"></span><span id="prev_activity"></span>
         </div>
-        </section>
+    </section>
 
     <div class="safe-area-border"></div>
     <div class="tg-safe-area-border">
@@ -672,91 +673,128 @@
     <script type="application/javascript">
 
         /*
-         * This is a demo             for Bots
-         *            es of how to use the API
-                    backend are disabled in this demo, yo            kend
+         * This is a demo code for Telegram WebApp for Bots
+         * It contains basic examples of how to use the API
+         * Note: all requests to backend are disabled in this demo, you should use your own backend
          */
 
         const DemoApp = {
-            initData: Telegram.WebApp.initData || ''                afe: Telegram.WebApp.initDataUnsafe ||                on: Telegram.WebApp.MainButton,
-                    ndaryButton,
-            BackButt                   SettingsButton: Telegram.WebApp.SettingsButton,
+            initData: Telegram.WebApp.initData || '',
+            initDataUnsafe: Telegram.WebApp.initDataUnsafe || {},
+            MainButton: Telegram.WebApp.MainButton,
+            SecondaryButton: Telegram.WebApp.SecondaryButton,
+            BackButton: Telegram.WebApp.BackButton,
+            SettingsButton: Telegram.WebApp.SettingsButton,
 
             init: function (options) {
                 document.body.style.visibility = '';
                 Telegram.WebApp.ready();
 
-                Telegram.WebApp.MainButton.se                        has_shine_effect: true,
+                Telegram.WebApp.MainButton.setParams({
+                    text: 'Close Webview',
+                    has_shine_effect: true,
                     is_visible: true
                 }).onClick(DemoApp.close);
 
-                Telegram.WebApp.Seco                    o Something',
-                    is_                    eSecondaryButton);
+                Telegram.WebApp.SecondaryButton.setParams({
+                    text: 'Do Something',
+                    is_visible: true
+                }).onClick(DemoApp.moveSecondaryButton);
 
-                T                                    DemoApp.showAlert('Back button pressed');
+                Telegram.WebApp.BackButton.onClick(function () {
+                    DemoApp.showAlert('Back button pressed');
                 });
 
-                Telegram.WebApp.SettingsButton.onClick(                    'Settings opened!');
+                Telegram.WebApp.SettingsButton.onClick(function () {
+                    DemoApp.showAlert('Settings opened!');
                 });
             },
 
             expand() {
                 Telegram.WebApp.expand();
             },
-                 .close();
+            close() {
+                Telegram.WebApp.close();
             },
-            toggleMainBu                mainButton = Telegram.WebApp.MainButton
-                    ble) {
+            toggleMainButton(el) {
+                const mainButton = Telegram.WebApp.MainButton
+                if (mainButton.isVisible) {
                     mainButton.hide()
-                    how Main Button'
+                    el.innerHTML = 'Show Main Button'
                 } else {
-                             Button'
+                    mainButton.show()
+                    el.innerHTML = 'Hide Main Button'
                 }
             },
-                    if (DemoApp.Second                econdaryButton.hide()
-                     '
+            toggleSecondaryButton(el) {
+                if (DemoApp.SecondaryButton.isVisible) {
+                    DemoApp.SecondaryButton.hide()
+                    el.innerHTML = 'Show Secondary Button'
                 } else {
-                                    el.innerHTML =                   },
-            toggleButtonsProgress                ressVisible) {
-                                      DemoApp.SecondaryButt                 'Show Progress'
-                     Button.showProgress()
-                      
-                    el.innerHTML = 'Hide Progress'
-                      },
-            moveSecondaryButton(el) {
-                const                n
-                if (sButton.position === 'left                tion = 'top'
-                } else if (sButto                           sButton.position = 'right'
-                   osition === 'right') {
-                    sB                (sButton.position === 'bottom') {
-                                             }
+                    DemoApp.SecondaryButton.show();
+                    el.innerHTML = 'Hide Secondary Button'
+                }
             },
-                              if (DemoApp.BackButton.isVisible) {
-                    DemoApp.BackButL                 Bac                 
+            toggleButtonsProgress(el) {
+                if (DemoApp.MainButton.isProgressVisible) {
+                    DemoApp.MainButton.hideProgress()
+                    DemoApp.SecondaryButton.hideProgress()
+                    el.innerHTML = 'Show Progress'
                 } else {
-                    DemoA                 tton.show()
-                    el.innerHTML = 'Hid                 tton'
+                    DemoApp.MainButton.showProgress()
+                    DemoApp.SecondaryButton.showProgress()
+                    el.innerHTML = 'Hide Progress'
+                }
+            },
+            moveSecondaryButton(el) {
+                const sButton = DemoApp.SecondaryButton
+                if (sButton.position === 'left') {
+                    sButton.position = 'top'
+                } else if (sButton.position === 'top') {
+                    sButton.position = 'right'
+                } else if (sButton.position === 'right') {
+                    sButton.position = 'bottom'
+                } else if (sButton.position === 'bottom') {
+                    sButton.position = 'left'
+                }
+            },
+            toggleBackButton(el) {
+                if (DemoApp.BackButton.isVisible) {
+                    DemoApp.BackButton.hide()
+                    el.innerHTML = 'Show Back Button'
+                } else {
+                    DemoApp.BackButton.show()
+                    el.innerHTML = 'Hide Back Button'
                 }
             },
             toggleSettingsButton(el) {
-                              moAp                gsButton.isVisible                                DemoApp.SettingsButton.hide()
-                            el.innerHTML = 'Show Settings Button'
-                            se {
-                    DemoApp.Setting                    ()
-                    el.innerHTML = 'Hide Settin                                   }
-            },
-                            ipeBehavior(el) {
-                if (Telegram.We                    calSwipesEnabled) {
-                               egram.WebApp.disableVerticalSwipes()
-                            el.innerHTML = 'Enable                        '
+                if (DemoApp.SettingsButton.isVisible) {
+                    DemoApp.SettingsButton.hide()
+                    el.innerHTML = 'Show Settings Button'
                 } else {
-                                        App.enableVerticalSwipe                                el.innerHTML = 'Disa                            
-                                        
-            toggleOrientati                                     if (Telegram.WebApp.isOrientati                                        Telegram.W                            ion()
-                                   rHTML = 'Lock Orientation'
-                                                     Telegram.WebApp.lockOrientation()
-                             l.innerHTML = 'Unlock Orientation'
-                                                             fullscreenInit() {
+                    DemoApp.SettingsButton.show()
+                    el.innerHTML = 'Hide Settings Button'
+                }
+            },
+            toggleSwipeBehavior(el) {
+                if (Telegram.WebApp.isVerticalSwipesEnabled) {
+                    Telegram.WebApp.disableVerticalSwipes()
+                    el.innerHTML = 'Enable Vertical Swypes'
+                } else {
+                    Telegram.WebApp.enableVerticalSwipes()
+                    el.innerHTML = 'Disable Vertical Swypes'
+                }
+            },
+            toggleOrientationLock(el) {
+                if (Telegram.WebApp.isOrientationLocked) {
+                    Telegram.WebApp.unlockOrientation()
+                    el.innerHTML = 'Lock Orientation'
+                } else {
+                    Telegram.WebApp.lockOrientation()
+                    el.innerHTML = 'Unlock Orientation'
+                }
+            },
+            fullscreenInit() {
                 Telegram.WebApp.onEvent('fullscreenChanged', function () {
                     DemoApp.updateFullscreenButton()
                 })
@@ -1639,7 +1677,7 @@
         function byteLength(str) {
             if (window.Blob) {
                 try {
-                           Blob([str]).size;
+                    return new Blob([str]).size;
                 } catch (e) {
                 }
             }
@@ -1664,40 +1702,40 @@
             const k = Math.pow(10, d || 0);
             return Math.round(val * k) / k;
         }
-        </script>
+    </script>
 
     <script type="application/javascript">
         /*
          * This part of code is used to initialize the demo app and set up the event handlers we need.
          */
 
-            Telegram.WebApp.onEvent('themeChanged', function () {
-                document.getElementById('theme_data').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
-            });
-
-            if (DemoApp.initDataUnsafe.query_id) {
-                document.getElementById('main_btn').style.display = 'block';
-            }
-            document.getElementById('with_webview_btn').style.display = !!DemoApp.initDataUnsafe.query_id && !DemoApp.initDataUnsafe.receiver ? 'block' : 'none';
-            document.getElementById('webview_data').innerHTML = JSON.stringify(DemoApp.initDataUnsafe, null, 2);
-
+        Telegram.WebApp.onEvent('themeChanged', function () {
             document.getElementById('theme_data').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
-            document.getElementById('regular_link').setAttribute('href', document.getElementById('regular_link').getAttribute('href') + location.hash);
-            document.getElementById('text_field').focus();
-            document.getElementById('regular_field').addEventListener('input', function (e) {
-                const val = this.value.toLowerCase();
-                if (val.indexOf('progress') >= 0) {
-                    Telegram.WebApp.MainButton.showProgress();
-                } else {
-                    Telegram.WebApp.MainButton.hideProgress();
-                }
-            });
+        });
 
-            document.getElementById('ver').innerHTML = Telegram.WebApp.version;
-            document.getElementById('platform').innerHTML = Telegram.WebApp.platform;
+        if (DemoApp.initDataUnsafe.query_id) {
+            document.getElementById('main_btn').style.display = 'block';
+        }
+        document.getElementById('with_webview_btn').style.display = !!DemoApp.initDataUnsafe.query_id && !DemoApp.initDataUnsafe.receiver ? 'block' : 'none';
+        document.getElementById('webview_data').innerHTML = JSON.stringify(DemoApp.initDataUnsafe, null, 2);
 
-            if (DemoApp.initDataUnsafe.receiver) {
-                document.getElementById('peer_wrap').style.display = 'block';
+        document.getElementById('theme_data').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
+        document.getElementById('regular_link').setAttribute('href', document.getElementById('regular_link').getAttribute('href') + location.hash);
+        document.getElementById('text_field').focus();
+        document.getElementById('regular_field').addEventListener('input', function (e) {
+            const val = this.value.toLowerCase();
+            if (val.indexOf('progress') >= 0) {
+                Telegram.WebApp.MainButton.showProgress();
+            } else {
+                Telegram.WebApp.MainButton.hideProgress();
+            }
+        });
+
+        document.getElementById('ver').innerHTML = Telegram.WebApp.version;
+        document.getElementById('platform').innerHTML = Telegram.WebApp.platform;
+
+        if (DemoApp.initDataUnsafe.receiver) {
+            document.getElementById('peer_wrap').style.display = 'block';
             document.getElementById('peer_name').innerHTML = DemoApp.initDataUnsafe.receiver.first_name + ' ' + DemoApp.initDataUnsafe.receiver.last_name;
             if (DemoApp.initDataUnsafe.receiver.photo_url) {
                 document.getElementById('peer_photo').setAttribute('src', DemoApp.initDataUnsafe.receiver.photo_url);
@@ -1714,166 +1752,166 @@
             }
         }
 
-            DemoApp.checkInitData();
-            DemoApp.init();
+        DemoApp.checkInitData();
+        DemoApp.init();
 
-            function setViewportData() {
-                document.querySelector('.viewport-border').setAttribute('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportHeight, 2))
-                document.querySelector('.viewport-stable_border').setAttribute('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportStableHeight, 2) +
-                    ' | is_expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false'));
-            }
+        function setViewportData() {
+            document.querySelector('.viewport-border').setAttribute('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportHeight, 2))
+            document.querySelector('.viewport-stable_border').setAttribute('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportStableHeight, 2) +
+                ' | is_expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false'));
+        }
 
-            Telegram.WebApp.setHeaderColor('secondary_bg_color');
-            Telegram.WebApp.onEvent('viewportChanged', setViewportData);
-            setViewportData();
+        Telegram.WebApp.setHeaderColor('secondary_bg_color');
+        Telegram.WebApp.onEvent('viewportChanged', setViewportData);
+        setViewportData();
 
-            // bg color picker
-            const bgColorSel = document.getElementById('bg_color_sel')
-            const bgColorInput = document.getElementById('bg_color_input')
-            let prevBgColorValue = bgColorSel.value
-            bgColorInput.value = Telegram.WebApp.backgroundColor
-            document.body.style.setProperty('--bg-color', Telegram.WebApp.backgroundColor)
+        // bg color picker
+        const bgColorSel = document.getElementById('bg_color_sel')
+        const bgColorInput = document.getElementById('bg_color_input')
+        let prevBgColorValue = bgColorSel.value
+        bgColorInput.value = Telegram.WebApp.backgroundColor
+        document.body.style.setProperty('--bg-color', Telegram.WebApp.backgroundColor)
 
-            bgColorInput.addEventListener('change', function (e) {
-                const color = e.target.value;
-                document.getElementById('bg_color_val').textContent = color;
-                bgColorSel.value = 'custom';
-                prevBgColorValue = bgColorSel.value;
+        bgColorInput.addEventListener('change', function (e) {
+            const color = e.target.value;
+            document.getElementById('bg_color_val').textContent = color;
+            bgColorSel.value = 'custom';
+            prevBgColorValue = bgColorSel.value;
+            Telegram.WebApp.setBackgroundColor(color);
+            document.body.style.setProperty('--bg-color', Telegram.WebApp.backgroundColor);
+        })
+
+        bgColorSel.addEventListener('change', function (e) {
+            const color = e.target.value;
+            if (color === 'custom') {
+                bgColorSel.value = prevBgColorValue;
+                const input = bgColorInput;
+                input.focus();
+                input.click();
+            } else {
+                document.getElementById('bg_color_val').textContent = 'custom...';
                 Telegram.WebApp.setBackgroundColor(color);
                 document.body.style.setProperty('--bg-color', Telegram.WebApp.backgroundColor);
-            })
+                bgColorInput.value = Telegram.WebApp.backgroundColor;
+                prevBgColorValue = bgColorSel.value;
+            }
+        })
 
-            bgColorSel.addEventListener('change', function (e) {
-                const color = e.target.value;
-                if (color === 'custom') {
-                    bgColorSel.value = prevBgColorValue;
-                    const input = bgColorInput;
-                    input.focus();
-                    input.click();
-                } else {
-                    document.getElementById('bg_color_val').textContent = 'custom...';
-                    Telegram.WebApp.setBackgroundColor(color);
-                    document.body.style.setProperty('--bg-color', Telegram.WebApp.backgroundColor);
-                    bgColorInput.value = Telegram.WebApp.backgroundColor;
-                    prevBgColorValue = bgColorSel.value;
-                }
-            })
+        // header color picker
+        const headerColorSel = document.getElementById('header_color_sel')
+        const headerColorInput = document.getElementById('header_color_input')
+        let prevHeaderColorValue = headerColorSel.value
+        headerColorInput.value = Telegram.WebApp.headerColor
+        document.body.style.setProperty('--header-color', Telegram.WebApp.headerColor)
 
-            // header color picker
-            const headerColorSel = document.getElementById('header_color_sel')
-            const headerColorInput = document.getElementById('header_color_input')
-            let prevHeaderColorValue = headerColorSel.value
-            headerColorInput.value = Telegram.WebApp.headerColor
-            document.body.style.setProperty('--header-color', Telegram.WebApp.headerColor)
+        headerColorSel.value = 'secondary_bg_color'
 
-            headerColorSel.value = 'secondary_bg_color'
+        headerColorInput.addEventListener('change', function (e) {
+            const color = e.target.value;
+            document.getElementById('header_color_val').textContent = color;
+            headerColorSel.value = 'custom';
+            prevHeaderColorValue = headerColorSel.value;
+            Telegram.WebApp.setHeaderColor(color);
+            document.body.style.setProperty('--header-color', Telegram.WebApp.headerColor);
+        })
 
-            headerColorInput.addEventListener('change', function (e) {
-                const color = e.target.value;
-                document.getElementById('header_color_val').textContent = color;
-                headerColorSel.value = 'custom';
-                prevHeaderColorValue = headerColorSel.value;
+        headerColorSel.addEventListener('change', function (e) {
+            const color = e.target.value;
+            if (color === 'custom') {
+                headerColorSel.value = prevHeaderColorValue;
+                const input = headerColorInput;
+                input.focus();
+                input.click();
+            } else {
+                document.getElementById('header_color_val').textContent = 'custom...';
                 Telegram.WebApp.setHeaderColor(color);
+                document.getElementById('top_sect').classList.toggle('second', color === 'secondary_bg_color');
                 document.body.style.setProperty('--header-color', Telegram.WebApp.headerColor);
-            })
+                headerColorInput.value = Telegram.WebApp.headerColor;
+                prevHeaderColorValue = headerColorSel.value;
+            }
+        })
 
-            headerColorSel.addEventListener('change', function (e) {
-                const color = e.target.value;
-                if (color === 'custom') {
-                    headerColorSel.value = prevHeaderColorValue;
-                    const input = headerColorInput;
-                    input.focus();
-                    input.click();
-                } else {
-                    document.getElementById('header_color_val').textContent = 'custom...';
-                    Telegram.WebApp.setHeaderColor(color);
-                    document.getElementById('top_sect').classList.toggle('second', color === 'secondary_bg_color');
-                    document.body.style.setProperty('--header-color', Telegram.WebApp.headerColor);
-                    headerColorInput.value = Telegram.WebApp.headerColor;
-                    prevHeaderColorValue = headerColorSel.value;
-                }
-            })
+        // bottom bar color picker
+        const bbarColorSel = document.getElementById('bbar_color_sel')
+        const bbarColorInput = document.getElementById('bbar_color_input')
+        let prevBbarColorValue = bbarColorSel.value;
+        bbarColorInput.value = Telegram.WebApp.bottomBarColor;
+        document.body.style.setProperty('--bottom-bar-color', Telegram.WebApp.bottomBarColor);
 
-            // bottom bar color picker
-            const bbarColorSel = document.getElementById('bbar_color_sel')
-            const bbarColorInput = document.getElementById('bbar_color_input')
-            let prevBbarColorValue = bbarColorSel.value;
-            bbarColorInput.value = Telegram.WebApp.bottomBarColor;
+        bbarColorInput.addEventListener('change', function (e) {
+            const color = e.target.value;
+            document.getElementById('bbar_color_val').textContent = color;
+            bbarColorSel.value = 'custom';
+            prevBbarColorValue = bbarColorSel.value;
+            Telegram.WebApp.setBottomBarColor(color);
             document.body.style.setProperty('--bottom-bar-color', Telegram.WebApp.bottomBarColor);
+        })
 
-            bbarColorInput.addEventListener('change', function (e) {
-                const color = e.target.value;
-                document.getElementById('bbar_color_val').textContent = color;
-                bbarColorSel.value = 'custom';
-                prevBbarColorValue = bbarColorSel.value;
+        bbarColorSel.addEventListener('change', function (e) {
+            const color = e.target.value;
+            if (color === 'custom') {
+                bbarColorSel.value = prevBbarColorValue;
+                const input = bbarColorInput;
+                input.focus();
+                input.click();
+            } else {
+                document.getElementById('bbar_color_val').textContent = 'custom...';
                 Telegram.WebApp.setBottomBarColor(color);
                 document.body.style.setProperty('--bottom-bar-color', Telegram.WebApp.bottomBarColor);
-            })
-
-            bbarColorSel.addEventListener('change', function (e) {
-                const color = e.target.value;
-                if (color === 'custom') {
-                    bbarColorSel.value = prevBbarColorValue;
-                    const input = bbarColorInput;
-                    input.focus();
-                    input.click();
-                } else {
-                    document.getElementById('bbar_color_val').textContent = 'custom...';
-                    Telegram.WebApp.setBottomBarColor(color);
-                    document.body.style.setProperty('--bottom-bar-color', Telegram.WebApp.bottomBarColor);
-                    bbarColorInput.value = Telegram.WebApp.bottomBarColor;
-                    prevBbarColorValue = bbarColorSel.value;
-                }
-            })
-
-            // theme
-            Telegram.WebApp.onEvent('themeChanged', function () {
-                bgColorInput.value = Telegram.WebApp.backgroundColor
-                document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor)
-            })
-
-            const orientBtn = document.getElementById('orient_btn')
-            if (Telegram.WebApp.isOrientationLocked) {
-                orientBtn.innerHTML = 'Unlock Orientation'
-            } else {
-                orientBtn.innerHTML = 'Lock Orientation'
+                bbarColorInput.value = Telegram.WebApp.bottomBarColor;
+                prevBbarColorValue = bbarColorSel.value;
             }
+        })
 
-            // permissions
-            try {
-                DemoApp.testClipboard(document.getElementById('clipboard_test'));
-            } catch (e) { }
-            try {
-                DemoApp.loadCloudKeys();
-            } catch (e) { }
-            try {
-                DemoApp.biometricInit();
-            } catch (e) { }
-            try {
-                DemoApp.fullscreenInit();
-            } catch (e) { }
-            try {
-                DemoApp.accelerometerInit();
-            } catch (e) { }
-            try {
-                DemoApp.deviceOrientationInit();
-            } catch (e) { }
-            try {
-                DemoApp.gyroscopeInit();
-            } catch (e) { }
-            try {
-                DemoApp.locationInit();
-            } catch (e) { }
-            try {
-                DemoApp.homeScreenInit();
-            } catch (e) { }
-            try {
-                DemoApp.emojiStatusInit();
-            } catch (e) { }
-            try {
-                DemoApp.activityInit();
-            } catch (e) { }
-        </script>
+        // theme
+        Telegram.WebApp.onEvent('themeChanged', function () {
+            bgColorInput.value = Telegram.WebApp.backgroundColor
+            document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor)
+        })
+
+        const orientBtn = document.getElementById('orient_btn')
+        if (Telegram.WebApp.isOrientationLocked) {
+            orientBtn.innerHTML = 'Unlock Orientation'
+        } else {
+            orientBtn.innerHTML = 'Lock Orientation'
+        }
+
+        // permissions
+        try {
+            DemoApp.testClipboard(document.getElementById('clipboard_test'));
+        } catch (e) { }
+        try {
+            DemoApp.loadCloudKeys();
+        } catch (e) { }
+        try {
+            DemoApp.biometricInit();
+        } catch (e) { }
+        try {
+            DemoApp.fullscreenInit();
+        } catch (e) { }
+        try {
+            DemoApp.accelerometerInit();
+        } catch (e) { }
+        try {
+            DemoApp.deviceOrientationInit();
+        } catch (e) { }
+        try {
+            DemoApp.gyroscopeInit();
+        } catch (e) { }
+        try {
+            DemoApp.locationInit();
+        } catch (e) { }
+        try {
+            DemoApp.homeScreenInit();
+        } catch (e) { }
+        try {
+            DemoApp.emojiStatusInit();
+        } catch (e) { }
+        try {
+            DemoApp.activityInit();
+        } catch (e) { }
+    </script>
 
 </body>
 
